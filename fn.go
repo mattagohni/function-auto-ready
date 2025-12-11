@@ -77,7 +77,7 @@ func (f *Function) RunFunction(_ context.Context, req *fnv1.RunFunctionRequest) 
 		if healthCheck := healthchecks.GetHealthCheck(gvk); healthCheck != nil {
 			log.Debug("Using resource-specific health check", "gvk", gvk.String())
 			if healthCheck(&or.Resource.Unstructured) {
-				log.Info("Marked resource as ready via resource-specific health check", "gvk", gvk.String())
+				log.Debug("Marked resource as ready via resource-specific health check", "gvk", gvk.String())
 				dr.Ready = resource.ReadyTrue
 			}
 		}
